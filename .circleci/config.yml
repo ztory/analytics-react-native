@@ -154,7 +154,7 @@ workflows:
       - build-integrations: *requiresInstall
       - build-core: *requiresInstall
       - fast:
-          context: snyk
+          context: npm
           requires:
             - build-core
             - build-integrations
