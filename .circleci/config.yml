@@ -48,6 +48,15 @@ jobs:
       - run: yarn commitlint-circle
       - run: yarn lint
 
+  fast:
+    <<: *nodeJob
+    steps:
+      - checkout
+      - *attach
+      - *getDeps
+      - run: yarn add @segment/fast --dev --no-lockfile -W
+      - run: yarn fast packages/{core,integrations}
+
   test-core:
     <<: *nodeJob
     steps:
@@ -143,6 +152,11 @@ workflows:
       - lint: *requiresInstall
       - build-integrations: *requiresInstall
       - build-core: *requiresInstall
+      - fast:
+          context: snyk
+          requires:
+            - build-core
+            - build-integrations
       - build-test-app:
           requires:
             - build-core
