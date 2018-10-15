@@ -154,7 +154,7 @@ workflows:
       - build-integrations: *requiresInstall
       - build-core: *requiresInstall
       - fast:
-          context: snyk
+          context: segmentio-org-global
           requires:
             - build-core
             - build-integrations
