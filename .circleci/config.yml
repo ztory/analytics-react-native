@@ -54,7 +54,6 @@ jobs:
       - checkout
       - *attach
       - *getDeps
-      - run: npm config set "//registry.npmjs.org/:_authToken" $NPM_AUTH
       - run: yarn add @segment/fast --dev --no-lockfile -W
       - run: yarn fast packages/{core,integrations}
 
@@ -154,7 +153,6 @@ workflows:
       - build-integrations: *requiresInstall
       - build-core: *requiresInstall
       - fast:
-          context: segmentio-org-global
           requires:
             - build-core
             - build-integrations
