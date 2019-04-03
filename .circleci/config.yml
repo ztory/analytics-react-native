@@ -111,9 +111,7 @@ jobs:
       # macOS VMs doesn't support Docker based caches
       - run: yarn install --frozen-lockfile
       - *attach
-      - run: brew tap wix/brew
-      - run: brew install wix/brew/applesimutils
-
+      - run: cp bin/* /usr/local/bin/
       - run: yarn test-app test:ios:vanilla
 
   test-ios-cocoapods:
