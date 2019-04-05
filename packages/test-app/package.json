@@ -41,7 +41,7 @@
       },
       "android": {
         "binaryPath": "project/android/app/build/outputs/apk/debug/app-debug.apk",
-        "build": "cd project/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+        "build": "echo lets fail && exit 2 && cd project/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
         "type": "android.emulator",
         "name": "Nexus_5X_API_27"
       }
