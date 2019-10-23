@@ -99,6 +99,11 @@ jobs:
       # macOS VMs doesn't support Docker based caches
       - run: yarn install --frozen-lockfile
       - *attach
+
+      # Temporary fix for Homebrew, see https://segment.slack.com/archives/GAN3GV9AT/p1571856108012900
+      - run: git -C "$(brew --repo)" fetch --tags
+      - run: brew update --force
+
       - run: brew tap wix/brew
       - run: brew install wix/brew/applesimutils
 
