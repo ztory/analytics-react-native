@@ -18,6 +18,7 @@ export interface TrackPayload
 			event: string
 			properties: JsonMap
 			integrations: Integrations
+			context: Context
 		}
 	> {}
 

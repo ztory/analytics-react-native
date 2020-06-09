@@ -213,7 +213,7 @@ export module Analytics {
 		 * @param options A dictionary of options, e.g. integrations (thigh analytics integration to forward the event to)
 		 */
 		public async track(event: string, properties: JsonMap = {}, options: Options = {}) {
-			await this.middlewares.run('track', { event, properties, integrations: options.integrations || {} })
+			await this.middlewares.run('track', { event, properties, integrations: options.integrations || {}, context: options.context || { library: {name: "test",version: "string"}} })
 		}
 
 		/**
