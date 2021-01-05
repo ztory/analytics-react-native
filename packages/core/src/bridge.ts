@@ -46,6 +46,7 @@ export interface Context extends JsonMap {
 export interface Options {
 	integrations?: Integrations
 	context?: Context
+	anonymousId?: string
 }
 
 export interface Bridge {

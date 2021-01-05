@@ -296,7 +296,7 @@ export module Analytics {
 		 * @param options A dictionary of options, e.g. integrations (thigh analytics integration to forward the event to)
 		 */
 		public async identify(user: string, traits: JsonMap = {}, options: Options = {}) {
-			await this.middlewares.run('identify', { user, traits, integrations: options.integrations || {} }, options.context || {})
+			await this.middlewares.run('identify', { user, traits, anonymousId: options.anonymousId || '', integrations: options.integrations || {} }, options.context || {})
 		}
 
 		/**

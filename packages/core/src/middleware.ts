@@ -37,6 +37,7 @@ export interface IdentifyPayload
 		{
 			user: string
 			traits: JsonMap
+			anonymousId?: string
 			integrations: Integrations
 		}
 	> {}
